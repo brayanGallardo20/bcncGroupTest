@@ -4,5 +4,5 @@ import com.project.bcngroup.domain.dto.ProductoDto;
 
 public interface IProductoUseCase {
 
-    ProductoDto obtenerProductos(String fechaAplicacion, int productoId, int cadenaId);
+    ProductoDto obtenerProducto(String fechaAplicacion, int productoId, int cadenaId);
 }

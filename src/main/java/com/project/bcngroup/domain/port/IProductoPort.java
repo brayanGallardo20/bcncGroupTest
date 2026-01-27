@@ -4,5 +4,5 @@ import com.project.bcngroup.domain.model.Producto;
 
 public interface IProductoPort {
 
-    Producto obtenerProductos(String fechaAplicacion, int productoId, int cadenaId);
+    Producto obtenerProducto(String fechaAplicacion, int productoId, int cadenaId);
 }

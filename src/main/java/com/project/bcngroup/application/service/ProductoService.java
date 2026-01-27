@@ -1,6 +1,6 @@
 package com.project.bcngroup.application.service;
 
-import com.project.bcngroup.application.mapper.IProductoDtoMapper;
+import com.project.bcngroup.application.mapper.ProductoDtoMapper;
 import com.project.bcngroup.application.usecase.IProductoUseCase;
 import com.project.bcngroup.domain.dto.ProductoDto;
 import com.project.bcngroup.infraestructure.adapter.ProductoJpaAdapter;
@@ -12,13 +12,14 @@ import org.springframework.stereotype.Service;
 public class ProductoService implements IProductoUseCase {
 
     private final ProductoJpaAdapter productoJpaAdapter;
-    private final IProductoDtoMapper productoDtoMapper;
 
     @Override
-    public ProductoDto obtenerProductos(String fechaAplicacion, int productoId, int cadenaId) {
+    public ProductoDto obtenerProducto(String fechaAplicacion, int productoId, int cadenaId) {
 
-        var producto = productoJpaAdapter.obtenerProductos(fechaAplicacion, productoId, cadenaId);
-        return productoDtoMapper.toDto(producto);
+        var mapper = new ProductoDtoMapper();
+        var producto = productoJpaAdapter.obtenerProducto(fechaAplicacion, productoId, cadenaId);
+
+        return mapper.toDto(producto);
     }
 
 }
