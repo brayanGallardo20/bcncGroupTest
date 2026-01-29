@@ -39,6 +39,10 @@ public class ProductoController {
         }
 
         var producto = productoService.obtenerProducto(fechaAplicacion, productoId, cadenaId);
+        if(producto == null){
+            return ResponseEntity.notFound().build();
+        }
+
         return ResponseEntity.ok().body(producto);
     }
 }

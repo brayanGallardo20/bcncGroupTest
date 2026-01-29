@@ -2,6 +2,7 @@ package com.project.bcngroup.infraestructure.adapter;
 
 import com.project.bcngroup.domain.model.Producto;
 import com.project.bcngroup.domain.port.IProductoPort;
+import com.project.bcngroup.infraestructure.adapter.entity.Precio;
 import com.project.bcngroup.infraestructure.adapter.mapper.ProductoMapper;
 import com.project.bcngroup.infraestructure.adapter.repository.IPrecioRepository;
 import lombok.AllArgsConstructor;
@@ -21,8 +22,9 @@ public class ProductoJpaAdapter implements IProductoPort {
         var mapper = new ProductoMapper();
         var fechaFormateada = formatearFecha(fechaAplicacion);
 
-        var precioEntity = precioRepository.findByStartDateAndBrandIdAndProductoId(fechaFormateada, cadenaId, productoId);
+        var precioEntity = precioRepository.findByStartDateAndBrandIdAndProductoId(fechaFormateada, cadenaId, productoId)
+                .orElse(null);
 
-        return mapper.toDomain(precioEntity);
+        return precioEntity == null ? null : mapper.toDomain(precioEntity);
     }
 }

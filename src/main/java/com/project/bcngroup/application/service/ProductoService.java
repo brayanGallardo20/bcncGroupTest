@@ -19,7 +19,7 @@ public class ProductoService implements IProductoUseCase {
         var mapper = new ProductoDtoMapper();
         var producto = productoJpaAdapter.obtenerProducto(fechaAplicacion, productoId, cadenaId);
 
-        return mapper.toDto(producto);
+        return producto == null ? null : mapper.toDto(producto);
     }
 
 }

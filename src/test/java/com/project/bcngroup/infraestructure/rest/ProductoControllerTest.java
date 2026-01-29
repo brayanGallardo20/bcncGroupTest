@@ -38,10 +38,8 @@ class ProductoControllerTest {
 
     @BeforeEach
     void setUp() {
-        // Inicializar MockMvc
         mockMvc = MockMvcBuilders.standaloneSetup(productoController).build();
 
-        // Crear un DTO de prueba
         productoDtoTest1 = new ProductoDto(
                 35455,
                 1,
@@ -51,7 +49,6 @@ class ProductoControllerTest {
                 LocalDateTime.parse("2020-12-31T23:59:59")
         );
 
-        // Crear un DTO de prueba
         productoDtoTest2 = new ProductoDto(
                 35455,
                 1,
@@ -61,7 +58,6 @@ class ProductoControllerTest {
                 LocalDateTime.parse("2020-12-31T23:59:59")
         );
 
-        // Crear un DTO de prueba
         productoDtoTest3 = new ProductoDto(
                 35455,
                 1,
@@ -71,7 +67,6 @@ class ProductoControllerTest {
                 LocalDateTime.parse("2020-12-31T23:59:59")
         );
 
-        // Crear un DTO de prueba
         productoDtoTest4 = new ProductoDto(
                 35455,
                 1,
@@ -81,7 +76,6 @@ class ProductoControllerTest {
                 LocalDateTime.parse("2020-12-31T23:59:59")
         );
 
-        // Crear un DTO de prueba
         productoDtoTest5 = new ProductoDto(
                 35455,
                 1,
@@ -109,8 +103,7 @@ class ProductoControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.productoId").value(35455))
                 .andExpect(jsonPath("$.cadenaId").value(1))
-                .andExpect(jsonPath("$.priceList").value(1))
-                .andExpect(jsonPath("$.precio").value(35.50));
+                .andExpect(jsonPath("$.fechaInicio").value("2020-06-14T10:00:00"));
 
         verify(productoService, times(1)).obtenerProducto(fechaAplicacion, productoId, cadenaId);
     }
@@ -132,8 +125,7 @@ class ProductoControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.productoId").value(35455))
                 .andExpect(jsonPath("$.cadenaId").value(1))
-                .andExpect(jsonPath("$.priceList").value(1))
-                .andExpect(jsonPath("$.precio").value(35.50));
+                .andExpect(jsonPath("$.fechaInicio").value("2020-06-14T16:00:00"));
 
         verify(productoService, times(1)).obtenerProducto(fechaAplicacion, productoId, cadenaId);
     }
@@ -156,8 +148,7 @@ class ProductoControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.productoId").value(35455))
                 .andExpect(jsonPath("$.cadenaId").value(1))
-                .andExpect(jsonPath("$.priceList").value(1))
-                .andExpect(jsonPath("$.precio").value(35.50));
+                .andExpect(jsonPath("$.fechaInicio").value("2020-06-14T21:00:00"));
 
         verify(productoService, times(1)).obtenerProducto(fechaAplicacion, productoId, cadenaId);
     }
@@ -179,8 +170,7 @@ class ProductoControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.productoId").value(35455))
                 .andExpect(jsonPath("$.cadenaId").value(1))
-                .andExpect(jsonPath("$.priceList").value(1))
-                .andExpect(jsonPath("$.precio").value(35.50));
+                .andExpect(jsonPath("$.fechaInicio").value("2020-06-15T10:00:00"));
 
         verify(productoService, times(1)).obtenerProducto(fechaAplicacion, productoId, cadenaId);
     }
@@ -203,8 +193,7 @@ class ProductoControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.productoId").value(35455))
                 .andExpect(jsonPath("$.cadenaId").value(1))
-                .andExpect(jsonPath("$.priceList").value(1))
-                .andExpect(jsonPath("$.precio").value(35.50));
+                .andExpect(jsonPath("$.fechaInicio").value("2020-06-16T21:00:00"));
 
         verify(productoService, times(1)).obtenerProducto(fechaAplicacion, productoId, cadenaId);
     }
