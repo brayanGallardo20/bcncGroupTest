@@ -1,3 +1,44 @@
 spring:
   application:
     name: bcngroup
+  datasource:
+    driver-class-name: org.h2.Driver
+    username: sa
+    url: jdbc:h2:mem:~/bcncgroup
+    password: ''
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+        trace: false
+      path: /h2-console
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    operations-sorter: method
+    tags-sorter: alpha
+    display-request-duration: true
+  api-docs:
+    path: /v3/api-docs
+  show-actuator: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
